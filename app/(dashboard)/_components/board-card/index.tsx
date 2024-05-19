@@ -1,14 +1,17 @@
 'use client'
 
-import Image from 'next/image'
-import Link from 'next/link'
-import { Overlay } from './overlay'
+import { Actions } from '@/components/actions'
+import { Skeleton } from '@/components/ui/skeleton'
+import { api } from '@/convex/_generated/api'
+import { useApiMutation } from '@/hooks/use-api-mutation'
 import { useAuth } from '@clerk/nextjs'
 import { formatDistanceToNow } from 'date-fns'
-import { Footer } from './footer'
-import { Skeleton } from '@/components/ui/skeleton'
-import { Actions } from '@/components/actions'
 import { MoreHorizontal } from 'lucide-react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { Footer } from './footer'
+import { Overlay } from './overlay'
+import { toast } from 'sonner'
 
 interface BoardCardProps {
   id: string
@@ -35,6 +38,21 @@ export const BoardCard = ({
   const authorLabel = userId === authorId ? 'You' : authorName
   const createdAtLabel = formatDistanceToNow(createdAt, { addSuffix: true })
 
+  const { mutate: onFavorite, pending: favoritePending } = useApiMutation(api.board.favorite)
+  const { mutate: onUnfavorite, pending: unfavoritePending } = useApiMutation(api.board.unfavorite)
+
+  const toggleFavorite = () => {
+    if (isFavorite) {
+      onUnfavorite({ id }).catch(() => {
+        toast.error('Failed to unfavorite board')
+      })
+    } else {
+      onFavorite({ id, orgId }).catch(() => {
+        toast.error('Failed to favorite board')
+      })
+    }
+  }
+
   return (
     <Link href={`/board/${id}`}>
       <div className='group aspect-[100/127] border rounded-lg flex flex-col justify-center overflow-hidden'>
@@ -52,8 +70,8 @@ export const BoardCard = ({
           title={title}
           authorLabel={authorLabel}
           createdAtLabel={createdAtLabel}
-          disabled={false}
-          onClick={() => {}}
+          disabled={favoritePending || unfavoritePending}
+          onClick={toggleFavorite}
         />
       </div>
     </Link>
