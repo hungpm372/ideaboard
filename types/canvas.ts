@@ -55,7 +55,7 @@ export type TextLayer = {
   width: number
   height: number
   fill: Color
-  value: string
+  value?: string
 }
 
 export type NoteLayer = {
@@ -65,7 +65,7 @@ export type NoteLayer = {
   width: number
   height: number
   fill: Color
-  value: string
+  value?: string
 }
 
 export type Point = {
@@ -131,3 +131,5 @@ export enum CanvasMode {
   Resizing,
   Pencil
 }
+
+export type Layer = RectangleLayer | EllipseLayer | PathLayer | TextLayer | NoteLayer
