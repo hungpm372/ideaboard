@@ -28,6 +28,7 @@ import { LayerPreview } from './layer-preview'
 import { Participants } from './participants'
 import { Toolbar } from './toolbar'
 import { SelectionBox } from './selection-box'
+import { SelectionTools } from './selection-tools'
 
 const MAX_LAYERS = 100
 
@@ -276,6 +277,10 @@ export const Canvas = ({ boardId }: CanvasProps) => {
         redo={history.redo}
         canUndo={canUndo}
         canRedo={canRedo}
+      />
+      <SelectionTools
+        setLastUsedColor={setLastUsedColor}
+        camera={camera}
       />
       <svg
         className='h-screen w-screen bg-green-400'
