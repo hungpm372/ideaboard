@@ -1,6 +1,7 @@
 'use client'
 
 import {
+  colorToCss,
   connectionIdToColor,
   findIntersectingLayersWithRectangle,
   penPointsToPathLayer,
@@ -13,6 +14,7 @@ import {
   useHistory,
   useMutation,
   useOthersMapped,
+  useSelf,
   useStorage
 } from '@/liveblocks.config'
 import {
@@ -35,6 +37,7 @@ import { Participants } from './participants'
 import { SelectionBox } from './selection-box'
 import { SelectionTools } from './selection-tools'
 import { Toolbar } from './toolbar'
+import { Path } from './path'
 
 const MAX_LAYERS = 100
 
@@ -44,6 +47,7 @@ interface CanvasProps {
 
 export const Canvas = ({ boardId }: CanvasProps) => {
   const layerIds = useStorage((root) => root.layerIds)
+  const pencilDraft = useSelf((self) => self.presence.pencilDraft)
 
   const [canvasState, setCanvasState] = useState<CanvasState>({ mode: CanvasMode.None })
   const [camera, setCamera] = useState<Camera>({ x: 0, y: 0 })
@@ -423,6 +427,9 @@ export const Canvas = ({ boardId }: CanvasProps) => {
             />
           )}
           <CursorsPresence />
+          {pencilDraft != null && pencilDraft.length > 0 && (
+            <Path x={0} y={0} points={pencilDraft} fill={colorToCss(lastUsedColor)} />
+          )}
         </g>
       </svg>
     </main>
