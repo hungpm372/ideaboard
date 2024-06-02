@@ -1,5 +1,6 @@
 'use client'
 
+import { useDisableScrollBounce } from '@/hooks/use-disable-scroll-bounce'
 import {
   colorToCss,
   connectionIdToColor,
@@ -29,15 +30,16 @@ import {
 } from '@/types/canvas'
 import { LiveObject } from '@liveblocks/client'
 import { nanoid } from 'nanoid'
-import { useCallback, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { CursorsPresence } from './cursors-presence'
 import { Info } from './info'
 import { LayerPreview } from './layer-preview'
 import { Participants } from './participants'
+import { Path } from './path'
 import { SelectionBox } from './selection-box'
 import { SelectionTools } from './selection-tools'
 import { Toolbar } from './toolbar'
-import { Path } from './path'
+import { useDeleteLayers } from '@/hooks/use-delete-layers'
 
 const MAX_LAYERS = 100
 
@@ -57,6 +59,7 @@ export const Canvas = ({ boardId }: CanvasProps) => {
     b: 0
   })
 
+  useDisableScrollBounce()
   const history = useHistory()
   const canUndo = useCanUndo()
   const canRedo = useCanRedo()
@@ -381,6 +384,31 @@ export const Canvas = ({ boardId }: CanvasProps) => {
 
     return result
   }, [selections])
+
+  const deleteLayers = useDeleteLayers()
+
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      switch (e.key) {
+        case 'z':
+          if (e.ctrlKey || e.metaKey) {
+            history.undo()
+          }
+          break
+        case 'y':
+          if (e.ctrlKey || e.metaKey) {
+            history.redo()
+          }
+          break
+      }
+    }
+
+    document.addEventListener('keydown', onKeyDown)
+
+    return () => {
+      document.removeEventListener('keydown', onKeyDown)
+    }
+  }, [history, deleteLayers])
 
   return (
     <main className='size-full relative bg-neutral-100 touch-none'>
