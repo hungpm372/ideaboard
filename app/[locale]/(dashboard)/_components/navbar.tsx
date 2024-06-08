@@ -3,6 +3,7 @@
 import { OrganizationSwitcher, UserButton, useOrganization } from '@clerk/nextjs'
 import { SearchInput } from './search-input'
 import { InviteButton } from './invite-button'
+import { LanguageSwitcher } from '@/components/language-switcher'
 
 export const Navbar = () => {
   const { organization } = useOrganization()
@@ -36,6 +37,7 @@ export const Navbar = () => {
           }}
         />
       </div>
+      <LanguageSwitcher />
       {organization && <InviteButton />}
       <UserButton />
     </div>
