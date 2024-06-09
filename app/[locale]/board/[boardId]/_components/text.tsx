@@ -1,6 +1,7 @@
 import { cn, colorToCss } from '@/lib/utils'
 import { useMutation } from '@/liveblocks.config'
 import { TextLayer } from '@/types/canvas'
+import { useTranslations } from 'next-intl'
 import { Kalam } from 'next/font/google'
 import ContentEditable, { ContentEditableEvent } from 'react-contenteditable'
 
@@ -11,7 +12,7 @@ const font = Kalam({
 
 const caculateTextSize = (width: number, height: number) => {
   const maxFontSize = 100
-  const scaleFactor = 0.5
+  const scaleFactor = 0.2
   const fontSizeBasedOnWidth = width * scaleFactor
   const fontSizeBasedOnHeight = height * scaleFactor
   return Math.min(maxFontSize, fontSizeBasedOnWidth, fontSizeBasedOnHeight)
@@ -25,6 +26,7 @@ interface TextProps {
 }
 
 export const Text = ({ id, layer, onPointerDown, selectionColor }: TextProps) => {
+  const t = useTranslations('Board')
   const { x, y, width, height, fill, value } = layer
 
   const updateText = useMutation(({ storage }, newText: string) => {
@@ -48,7 +50,7 @@ export const Text = ({ id, layer, onPointerDown, selectionColor }: TextProps) =>
       }}
     >
       <ContentEditable
-        html={value || 'Text'}
+        html={value || t('textPlaceholder')}
         onChange={handleTextChange}
         className={cn(
           'size-full flex items-center justify-center drop-shadow-md text-center outline-none',
