@@ -1,5 +1,6 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
 import {
   AlertDialog,
   AlertDialogAction,
@@ -27,6 +28,7 @@ export const ConfirmModal = ({
   description,
   disabled
 }: ConfirmModalProps) => {
+  const t = useTranslations('BoardActions')
   const handleConfirm = () => {
     onConfirm()
   }
@@ -40,9 +42,9 @@ export const ConfirmModal = ({
           <AlertDialogDescription>{description}</AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogCancel>{t('cancelButton')}</AlertDialogCancel>
           <AlertDialogAction onClick={handleConfirm} disabled={disabled}>
-            Confirm
+            {t('confirmButton')}
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>

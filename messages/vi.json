@@ -1,5 +1,49 @@
 {
-    "Index": {
-        "title": "Hello world! vi"
+    "Dashboard": {
+        "favorite": "Bảng yêu thích",
+        "team": "Bảng nhóm",
+        "searchPlaceholder": "Tìm kiếm bất cứ điều gì...",
+        "inviteMembersButton": "Mời thành viên",
+        "newBoardButton": "Bảng mới",
+        "createBoardButton": "Tạo bảng",
+        "createFirstBoardTitle": "Tạo bảng đầu tiên của bạn!",
+        "createFirstBoardDescription": "Bắt đầu bằng việc tạo một bảng cho tổ chức của bạn",
+        "noBoardAlt": "Không có kết quả về bảng",
+        "createBoardSuccess": "Đã tạo bảng",
+        "createBoardFailure": "Không thể tạo bảng",
+        "untitledBoard": "Bảng không có tiêu đề",
+        "noFavoriteBoardsTitle": "Bạn chưa có bảng yêu thích nào!",
+        "noFavoriteBoardsDescription": "Thêm các bảng vào mục yêu thích để truy cập nhanh chóng",
+        "noFavoriteBoardsAlt": "Không có kết quả yêu thích",
+        "welcomeTitle": "Chào mừng bạn đến với {appName}!",
+        "welcomeDescription": "Tạo tổ chức để bắt đầu hợp tác với nhóm của bạn",
+        "createOrganizationButton": "Tạo tổ chức",
+        "noOrganizationAlt": "Không có tổ chức",
+        "emptySearchTitle": "Không tìm thấy kết quả",
+        "emptySearchDescription": "Thử tìm kiếm điều gì đó khác",
+        "emptySearchAlt": "Không có kết quả tìm kiếm",
+        "createOrganizationTooltip": "Tạo tổ chức",
+        "authorLabelYou": "Bạn",
+        "failedToUnfavorite": "Không thể bỏ yêu thích bảng",
+        "failedToFavorite": "Không thể yêu thích bảng"
+    },
+    "BoardActions": {
+        "copyBoardLink": "Sao chép liên kết bảng",
+        "renameBoard": "Đổi tên",
+        "renameBoardHeader": "Đổi tên bảng",
+        "renameBoardDescription": "Nhập tên mới cho bảng",
+        "renameBoardPlaceholder": "Nhập tên mới cho bảng",
+        "deleteBoard": "Xóa",
+        "deleteBoardHeader": "Xóa bảng",
+        "deleteBoardDescription": "Bạn có chắc chắn muốn xóa bảng này? Hành động này không thể hoàn tác.",
+        "copyLinkSuccess": "Đã sao chép liên kết vào Clipboard",
+        "copyLinkFailure": "Không thể sao chép liên kết",
+        "renameBoardSuccess": "Đổi tên bảng thành công",
+        "renameBoardFailure": "Không thể đổi tên bảng",
+        "deleteBoardSuccess": "Đã xóa bảng",
+        "deleteBoardFailure": "Không thể xóa bảng",
+        "cancelButton": "Hủy",
+        "confirmButton": "Xác nhận",
+        "saveButton": "Lưu"
     }
 }

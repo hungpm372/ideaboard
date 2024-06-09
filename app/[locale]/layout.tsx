@@ -33,9 +33,11 @@ export default async function RootLayout({
     <html lang={locale}>
       <body className={inter.className}>
         <ConvexClientProvider>
-          <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
-          <Toaster />
-          <ModalProvider />
+          <NextIntlClientProvider messages={messages}>
+            {children}
+            <Toaster />
+            <ModalProvider />
+          </NextIntlClientProvider>
         </ConvexClientProvider>
       </body>
     </html>

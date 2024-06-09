@@ -1,5 +1,49 @@
 {
-    "Index": {
-        "title": "Hello world! en"
+    "Dashboard": {
+        "favorite": "Favorite boards",
+        "team": "Team boards",
+        "searchPlaceholder": "Search for anything...",
+        "inviteMembersButton": "Invite members",
+        "newBoardButton": "New board",
+        "createBoardButton": "Create board",
+        "createFirstBoardTitle": "Create your first board!",
+        "createFirstBoardDescription": "Start by creating a board for your organization",
+        "noBoardAlt": "No board results",
+        "createBoardSuccess": "Board created",
+        "createBoardFailure": "Failed to create board",
+        "untitledBoard": "Untitled",
+        "noFavoriteBoardsTitle": "You have no favorite boards!",
+        "noFavoriteBoardsDescription": "Add boards to your favorites to quickly access them",
+        "noFavoriteBoardsAlt": "No favorite results",
+        "welcomeTitle": "Welcome to {appName}!",
+        "welcomeDescription": "Create an organization to start collaborating with your team",
+        "createOrganizationButton": "Create organization",
+        "noOrganizationAlt": "No organization",
+        "emptySearchTitle": "No results found",
+        "emptySearchDescription": "Try searching for something else",
+        "emptySearchAlt": "No search results",
+        "createOrganizationTooltip": "Create organization",
+        "authorLabelYou": "You",
+        "failedToUnfavorite": "Failed to unfavorite board",
+        "failedToFavorite": "Failed to favorite board"
+    },
+    "BoardActions": {
+        "copyBoardLink": "Copy board link",
+        "renameBoard": "Rename",
+        "renameBoardHeader": "Rename board",
+        "renameBoardDescription": "Enter a new name for the board",
+        "renameBoardPlaceholder": "Enter a new name for the board",
+        "deleteBoard": "Delete",
+        "deleteBoardHeader": "Delete board",
+        "deleteBoardDescription": "Are you sure you want to delete this board? This action cannot be undone.",
+        "copyLinkSuccess": "Link copied to clipboard",
+        "copyLinkFailure": "Failed to copy link",
+        "renameBoardSuccess": "Board renamed",
+        "renameBoardFailure": "Failed to rename board",
+        "deleteBoardSuccess": "Board deleted",
+        "deleteBoardFailure": "Failed to delete board",
+        "cancelButton": "Cancel",
+        "confirmButton": "Confirm",
+        "saveButton": "Save"
     }
 }

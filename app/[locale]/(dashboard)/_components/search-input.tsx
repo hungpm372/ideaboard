@@ -2,6 +2,7 @@
 
 import { Input } from '@/components/ui/input'
 import { Search } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 import { useRouter } from 'next/navigation'
 import queryString from 'query-string'
 import { ChangeEvent, useEffect, useState } from 'react'
@@ -9,6 +10,7 @@ import { useDebounceValue } from 'usehooks-ts'
 
 export const SearchInput = () => {
   const router = useRouter()
+  const t = useTranslations('Dashboard')
   const [value, setValue] = useState('')
   const [debouncedValue, updateDebouncedValue] = useDebounceValue(value, 500)
 
@@ -33,7 +35,7 @@ export const SearchInput = () => {
       <Search className='absolute top-1/2 left-3 transform -translate-y-1/2 text-muted-foreground size-4' />
       <Input
         className='w-full max-w-[516px] pl-9'
-        placeholder='Search for anything...'
+        placeholder={t('searchPlaceholder')}
         onChange={handleChange}
         value={value}
       />

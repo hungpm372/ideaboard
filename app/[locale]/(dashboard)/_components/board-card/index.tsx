@@ -4,14 +4,16 @@ import { Actions } from '@/components/actions'
 import { Skeleton } from '@/components/ui/skeleton'
 import { api } from '@/convex/_generated/api'
 import { useApiMutation } from '@/hooks/use-api-mutation'
+import { getLocale } from '@/lib/utils'
 import { useAuth } from '@clerk/nextjs'
 import { formatDistanceToNow } from 'date-fns'
 import { MoreHorizontal } from 'lucide-react'
+import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
+import { toast } from 'sonner'
 import { Footer } from './footer'
 import { Overlay } from './overlay'
-import { toast } from 'sonner'
 
 interface BoardCardProps {
   id: string
@@ -35,8 +37,13 @@ export const BoardCard = ({
   title
 }: BoardCardProps) => {
   const { userId } = useAuth()
-  const authorLabel = userId === authorId ? 'You' : authorName
-  const createdAtLabel = formatDistanceToNow(createdAt, { addSuffix: true })
+  const locale = useLocale()
+  const t = useTranslations('Dashboard')
+  const authorLabel = userId === authorId ? t('authorLabelYou') : authorName
+  const createdAtLabel = formatDistanceToNow(createdAt, {
+    addSuffix: true,
+    locale: getLocale(locale)
+  })
 
   const { mutate: onFavorite, pending: favoritePending } = useApiMutation(api.board.favorite)
   const { mutate: onUnfavorite, pending: unfavoritePending } = useApiMutation(api.board.unfavorite)
@@ -44,11 +51,11 @@ export const BoardCard = ({
   const toggleFavorite = () => {
     if (isFavorite) {
       onUnfavorite({ id }).catch(() => {
-        toast.error('Failed to unfavorite board')
+        toast.error(t('failedToUnfavorite'))
       })
     } else {
       onFavorite({ id, orgId }).catch(() => {
-        toast.error('Failed to favorite board')
+        toast.error(t('failedToFavorite'))
       })
     }
   }
