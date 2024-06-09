@@ -5,6 +5,7 @@ import { getAllOrThrow } from 'convex-helpers/server/relationships'
 export const get = query({
   args: {
     orgId: v.string(),
+    locale: v.optional(v.string()),
     search: v.optional(v.string()),
     favorites: v.optional(v.string())
   },
