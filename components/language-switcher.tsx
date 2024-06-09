@@ -2,7 +2,16 @@
 import { LANGUAGES } from '@/constants/i18n'
 import { cn } from '@/lib/utils'
 import { usePathname } from '@/navigation'
-import { Languages } from 'lucide-react'
+import {
+  ArrowBigDown,
+  ArrowDown,
+  ArrowDown10,
+  ArrowDownAZ,
+  ArrowDownFromLine,
+  ArrowDownIcon,
+  ChevronDown,
+  Languages
+} from 'lucide-react'
 import { useLocale } from 'next-intl'
 import { Button } from './ui/button'
 import {
@@ -29,19 +38,22 @@ export const LanguageSwitcher = () => {
       <DropdownMenuTrigger asChild>
         <Button variant={'outline'}>
           <Languages className='size-4 mr-2' />
-          {LANGUAGES[locale as keyof typeof LANGUAGES]}
+          {LANGUAGES[locale as keyof typeof LANGUAGES][locale as keyof typeof LANGUAGES]}
+          <ChevronDown className='size-4 ml-8' />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
-        {Object.entries(LANGUAGES).map(([code, name]) => (
-          <DropdownMenuItem
-            key={code}
-            onClick={() => handleLanguageChange(code)}
-            className={cn(locale === code && 'font-bold')}
-          >
-            {name}
-          </DropdownMenuItem>
-        ))}
+        {Object.entries(LANGUAGES[locale as keyof typeof LANGUAGES]).map(([code, name]) => {
+          return (
+            <DropdownMenuItem
+              key={code}
+              onClick={() => handleLanguageChange(code)}
+              className={cn(locale === code && 'font-bold')}
+            >
+              {name}
+            </DropdownMenuItem>
+          )
+        })}
       </DropdownMenuContent>
     </DropdownMenu>
   )
