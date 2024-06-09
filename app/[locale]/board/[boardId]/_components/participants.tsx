@@ -3,10 +3,12 @@
 import { useOthers, useSelf } from '@/liveblocks.config'
 import { UserAvatar } from './user-avatar'
 import { connectionIdToColor } from '@/lib/utils'
+import { useTranslations } from 'next-intl'
 
 const MAX_SHOWN_USERS = 5
 
 export const Participants = () => {
+  const t = useTranslations('Board')
   const users = useOthers()
   const currentUser = useSelf()
   const hasMoreUsers = users.length > MAX_SHOWN_USERS
@@ -25,14 +27,14 @@ export const Participants = () => {
         {currentUser && (
           <UserAvatar
             src={currentUser.info?.picture}
-            name={`${currentUser.info?.name} (You)`}
+            name={`${currentUser.info?.name} (${t('authorLabelYou')})`}
             fallback={currentUser.info?.name?.charAt(0).toUpperCase() || 'T'}
             borderColor={connectionIdToColor(currentUser.connectionId)}
           />
         )}
         {hasMoreUsers && (
           <UserAvatar
-            name={`${users.length - MAX_SHOWN_USERS} more`}
+            name={`${users.length - MAX_SHOWN_USERS} ${t('moreLabel')}`}
             fallback={`+${users.length - MAX_SHOWN_USERS}`}
           />
         )}

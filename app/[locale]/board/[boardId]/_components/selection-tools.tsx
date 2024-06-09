@@ -9,6 +9,7 @@ import { ColorPicker } from './color-picker'
 import { Hint } from '@/components/hint'
 import { Button } from '@/components/ui/button'
 import { BringToFront, SendToBack, Trash2 } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 interface SelectionToolsProps {
   camera: Camera
@@ -16,6 +17,7 @@ interface SelectionToolsProps {
 }
 
 export const SelectionTools = memo(({ camera, setLastUsedColor }: SelectionToolsProps) => {
+  const t = useTranslations('Board')
   const selection = useSelf((me) => me.presence.selection)
 
   const moveToFront = useMutation(
@@ -88,19 +90,19 @@ export const SelectionTools = memo(({ camera, setLastUsedColor }: SelectionTools
     >
       <ColorPicker onChange={setFill} />
       <div className='flex flex-col gap-y-0.5'>
-        <Hint label='Bring to Front' sideOffset={5}>
+        <Hint label={t('bringToFrontTooltip')} sideOffset={5}>
           <Button variant={'board'} size={'icon'} onClick={moveToFront}>
             <BringToFront />
           </Button>
         </Hint>
-        <Hint label='Send to back' side='bottom' sideOffset={5}>
+        <Hint label={t('sendToBackTooltip')} side='bottom' sideOffset={5}>
           <Button variant={'board'} size={'icon'} onClick={moveToBack}>
             <SendToBack />
           </Button>
         </Hint>
       </div>
       <div className='flex items-center pl-2 ml-2 border-l border-neutral-200'>
-        <Hint label='Delete' sideOffset={5}>
+        <Hint label={t('deleteTooltip')} sideOffset={5}>
           <Button variant={'board'} size={'icon'} onClick={deleteLayers}>
             <Trash2 />
           </Button>

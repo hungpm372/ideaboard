@@ -45,5 +45,24 @@
         "cancelButton": "Cancel",
         "confirmButton": "Confirm",
         "saveButton": "Save"
+    },
+    "Board": {
+        "goToBoardsTooltip": "Go to boards",
+        "renameBoardTooltip": "Rename board",
+        "mainMenuTooltip": "Main menu",
+        "authorLabelYou": "You",
+        "moreLabel": "more",
+        "bringToFrontTooltip": "Bring to Front",
+        "sendToBackTooltip": "Send to back",
+        "deleteTooltip": "Delete",
+        "textPlaceholder": "Enter text",
+        "selectTooltip": "Select",
+        "textTooltip": "Text",
+        "stickyNoteTooltip": "Sticky note",
+        "rectangleTooltip": "Rectangle",
+        "ellipseTooltip": "Ellipse",
+        "penTooltip": "Pen",
+        "undoTooltip": "Undo",
+        "redoTooltip": "Redo"
     }
 }

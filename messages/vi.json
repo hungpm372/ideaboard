@@ -45,5 +45,24 @@
         "cancelButton": "Hủy",
         "confirmButton": "Xác nhận",
         "saveButton": "Lưu"
+    },
+    "Board": {
+        "goToBoardsTooltip": "Đi đến bảng",
+        "renameBoardTooltip": "Đổi tên bảng",
+        "mainMenuTooltip": "Menu chính",
+        "authorLabelYou": "Bạn",
+        "moreLabel": "thêm",
+        "bringToFrontTooltip": "Đưa lên phía trước",
+        "sendToBackTooltip": "Gửi về phía sau",
+        "deleteTooltip": "Xóa",
+        "textPlaceholder": "Nhập văn bản",
+        "selectTooltip": "Chọn",
+        "textTooltip": "Văn bản",
+        "stickyNoteTooltip": "Ghi chú dán",
+        "rectangleTooltip": "Hình chữ nhật",
+        "ellipseTooltip": "Hình ellipse",
+        "penTooltip": "Bút",
+        "undoTooltip": "Hoàn tác",
+        "redoTooltip": "Làm lại"
     }
 }
