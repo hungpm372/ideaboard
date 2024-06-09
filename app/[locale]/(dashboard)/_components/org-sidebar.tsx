@@ -1,9 +1,11 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
+import { AppConfig } from '@/configs/app-config'
 import { cn } from '@/lib/utils'
 import { OrganizationSwitcher } from '@clerk/nextjs'
 import { LayoutDashboard, Star } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 import { Poppins } from 'next/font/google'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -16,14 +18,15 @@ const font = Poppins({
 
 export const OrgSidebar = () => {
   const searchParams = useSearchParams()
+  const t = useTranslations('Dashboard')
   const favorites = searchParams.get('favorites')
 
   return (
     <div className='hidden lg:flex flex-col space-y-6 w-[206px] pl-5 pt-5 '>
       <Link href={'/'}>
         <div className='flex items-center gap-x-2'>
-          <Image src={'/logo.svg'} alt='Ideaboard' width={60} height={60} />
-          <span className={cn('font-semibold text-xl', font.className)}>Ideaboard</span>
+          <Image src={'/logo.svg'} alt={AppConfig.appName} width={60} height={60} />
+          <span className={cn('font-semibold text-xl', font.className)}>{AppConfig.appName}</span>
         </div>
       </Link>
       <OrganizationSwitcher
@@ -56,7 +59,7 @@ export const OrgSidebar = () => {
         >
           <Link href={'/'}>
             <LayoutDashboard className='size-4 mr-2' />
-            Team boards
+            {t('team')}
           </Link>
         </Button>
         <Button
@@ -72,7 +75,7 @@ export const OrgSidebar = () => {
             }}
           >
             <Star className='size-4 mr-2' />
-            Favorite boards
+            {t('favorite')}
           </Link>
         </Button>
       </div>

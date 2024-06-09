@@ -1,7 +1,7 @@
 'use client'
 import { LANGUAGES } from '@/constants/i18n'
 import { cn } from '@/lib/utils'
-import { usePathname, useRouter } from '@/navigation'
+import { usePathname } from '@/navigation'
 import { Languages } from 'lucide-react'
 import { useLocale } from 'next-intl'
 import { Button } from './ui/button'
@@ -11,14 +11,15 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger
 } from './ui/dropdown-menu'
+import { useSearchParams } from 'next/navigation'
 
 export const LanguageSwitcher = () => {
   const locale = useLocale()
-  const router = useRouter()
   const pathname = usePathname()
+  const searchParams = useSearchParams()
 
   const handleLanguageChange = (code: string) => {
-    location.href = `/${code}${pathname}`
+    location.href = `/${code}${pathname}?${searchParams.toString()}`
     // Not working with next-intl
     // router.push(pathname, { locale: code })
   }

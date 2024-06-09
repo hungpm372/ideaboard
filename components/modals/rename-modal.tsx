@@ -16,8 +16,10 @@ import {
 } from '../ui/dialog'
 import { Input } from '../ui/input'
 import { toast } from 'sonner'
+import { useTranslations } from 'next-intl'
 
 export const RenameModal = () => {
+  const t = useTranslations('BoardActions')
   const { mutate, pending } = useApiMutation(api.board.update)
   const { isOpen, initialValues, onClose } = useRenameModal()
   const [title, setTitle] = useState<string>(initialValues.title)
@@ -31,11 +33,11 @@ export const RenameModal = () => {
 
     mutate({ id: initialValues.id, title })
       .then(() => {
-        toast.success('Board renamed')
+        toast.success(t('renameBoardSuccess'))
         onClose()
       })
       .catch(() => {
-        toast.error('Failed to rename board')
+        toast.error(t('renameBoardFailure'))
         onClose()
       })
   }
@@ -44,9 +46,9 @@ export const RenameModal = () => {
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Rename board</DialogTitle>
+          <DialogTitle>{t('renameBoardHeader')}</DialogTitle>
         </DialogHeader>
-        <DialogDescription>Enter a new name for the board</DialogDescription>
+        <DialogDescription>{t('renameBoardDescription')}</DialogDescription>
         <form onSubmit={onSubmit} className='space-y-4'>
           <Input
             disabled={pending}
@@ -54,16 +56,16 @@ export const RenameModal = () => {
             maxLength={60}
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            placeholder='Enter a new name for the board'
+            placeholder={t('renameBoardPlaceholder')}
           />
           <DialogFooter>
             <DialogClose asChild>
               <Button type='button' variant={'outline'}>
-                Cancel
+                {t('cancelButton')}
               </Button>
             </DialogClose>
             <Button disabled={pending} type='submit'>
-              Save
+              {t('saveButton')}
             </Button>
           </DialogFooter>
         </form>

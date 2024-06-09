@@ -1,5 +1,6 @@
 import { Camera, Color, Layer, LayerType, PathLayer, Point, Side, XYWH } from '@/types/canvas'
 import { type ClassValue, clsx } from 'clsx'
+import { Locale, enGB, enUS, ja, ko, vi, zhCN } from 'date-fns/locale'
 import { twMerge } from 'tailwind-merge'
 
 export function cn(...inputs: ClassValue[]) {
@@ -129,4 +130,17 @@ export function getSvgPathFromStroke(stroke: number[][]) {
 
   d.push('Z')
   return d.join(' ')
+}
+
+const locales: { [key: string]: Locale } = {
+  en: enGB,
+  vi: vi,
+  zh: zhCN,
+  ko: ko,
+  ja: ja,
+  default: enUS // Fallback locale
+}
+
+export function getLocale(locale: string) {
+  return locales[locale as keyof typeof locales] || locales.default
 }
