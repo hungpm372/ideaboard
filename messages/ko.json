@@ -64,5 +64,10 @@
         "penTooltip": "펜",
         "undoTooltip": "되돌리기",
         "redoTooltip": "다시하기"
+    },
+    "Theme": {
+        "light": "라이트",
+        "dark": "다크",
+        "system": "시스템"
     }
 }

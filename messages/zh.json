@@ -64,5 +64,10 @@
         "penTooltip": "笔",
         "undoTooltip": "撤销",
         "redoTooltip": "重做"
+    },
+    "Theme": {
+        "light": "浅色",
+        "dark": "深色",
+        "system": "系统"
     }
 }

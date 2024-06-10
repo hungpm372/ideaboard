@@ -40,12 +40,15 @@ export const OrgSidebar = () => {
               width: '100%'
             },
             organizationSwitcherTrigger: {
-              padding: '6px',
+              padding: '5px',
               width: '100%',
               borderRadius: '8px',
               border: '1px solid #E5E7EB',
               justifyContent: 'space-between',
-              backgroundColor: '#FFFFFF'
+              backgroundColor: '#FFFFFF',
+              '&:hover': {
+                backgroundColor: '#F9FAFB'
+              }
             }
           }
         }}

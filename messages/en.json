@@ -64,5 +64,10 @@
         "penTooltip": "Pen",
         "undoTooltip": "Undo",
         "redoTooltip": "Redo"
+    },
+    "Theme": {
+        "light": "Light",
+        "dark": "Dark",
+        "system": "System"
     }
 }

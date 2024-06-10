@@ -64,5 +64,10 @@
         "penTooltip": "Bút",
         "undoTooltip": "Hoàn tác",
         "redoTooltip": "Làm lại"
+    },
+    "Theme": {
+        "light": "Sáng",
+        "dark": "Tối",
+        "system": "Hệ thống"
     }
 }

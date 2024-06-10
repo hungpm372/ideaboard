@@ -44,7 +44,7 @@ export const Info = ({ boardId }: InfoProps) => {
       <Hint label={t('renameBoardTooltip')} side='bottom' sideOffset={10}>
         <Button
           variant={'board'}
-          className='text-base font-normal px-2'
+          className='text-base font-normal px-2 text-black'
           onClick={() => onOpen(data._id, data.title)}
         >
           {data.title}
@@ -54,7 +54,7 @@ export const Info = ({ boardId }: InfoProps) => {
       <Actions id={data._id} title={data.title} side='bottom' sideOffset={10}>
         <div>
           <Hint label={t('mainMenuTooltip')} side='bottom' sideOffset={10}>
-            <Button variant={'board'} size={'icon'}>
+            <Button variant={'board'} size={'icon'} className='text-black'>
               <Menu />
             </Button>
           </Hint>
