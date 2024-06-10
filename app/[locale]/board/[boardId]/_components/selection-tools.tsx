@@ -83,7 +83,7 @@ export const SelectionTools = memo(({ camera, setLastUsedColor }: SelectionTools
 
   return (
     <div
-      className='absolute p-3 rounded-xl bg-white shadow-sm border flex select-none'
+      className='absolute p-3 rounded-xl bg-white shadow-sm border border-yellow-100 flex select-none'
       style={{
         transform: `translate(calc(${x}px - 50%), calc(${y - 16}px - 100%))`
       }}

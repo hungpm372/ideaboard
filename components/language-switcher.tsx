@@ -42,7 +42,7 @@ export const LanguageSwitcher = () => {
           <ChevronDown className='size-4 ml-8' />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent>
+      <DropdownMenuContent side='bottom' align='start' className='w-full'>
         {Object.entries(LANGUAGES[locale as keyof typeof LANGUAGES]).map(([code, name]) => {
           return (
             <DropdownMenuItem

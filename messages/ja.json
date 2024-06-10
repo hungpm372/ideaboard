@@ -64,5 +64,10 @@
         "penTooltip": "ペン",
         "undoTooltip": "元に戻す",
         "redoTooltip": "やり直す"
+    },
+    "Theme": {
+        "light": "ライト",
+        "dark": "ダーク",
+        "system": "システム"
     }
 }
