@@ -15,7 +15,7 @@ const intlMiddleware = createMiddleware({
 // for more information about configuring your Middleware
 export default authMiddleware({
   // Allow signed out users to access the specified routes:
-  publicRoutes: [],
+  publicRoutes: ['/'],
   beforeAuth: (req) => {
     const { pathname } = req.nextUrl
 
